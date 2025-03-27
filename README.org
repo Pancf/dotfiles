@@ -1,0 +1,44 @@
+#+TITLE: Personal env setup
+#+AUTHOR: Chenfeng Pan
+
+* App
+** Xcode
+** [[https://dl.nssurge.com/mac/v4/Surge-latest.zip][Surge]]
+** AdGuard
+
+* System Settings
+** General
++ 24-hour time
++ Date format MM/DD/YYYY
+** Control Center
++ Wifi
++ Bluetooth
++ Clock
+** Accessibility
++ Use three fingers to drag
+** Desktop & Dock
++ Position Left
+** Spotlight
++ Disable it
+** Displays
++ True tone
++ Display P3
+** Keyboard
++ Key repeat rate
++ Delay until repeat
++ Disable Fn
++ Disable Spotlight shortcut
++ Switch CapsLock and Control
++ Use CapsLock to switch input source
+** Trackpad
++ Tap with three fingers to look up
++ Secondary click with two fingers
++ Tap to click
++ Scroll between pages with two fingers
++ Swipe between full-screen apps with four fingers
++ Mission control with four fingers
++ App Expose with four fingers
+
+* Shell Environment
+** see [[./install.sh][install script]]
+  

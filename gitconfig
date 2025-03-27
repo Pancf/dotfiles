@@ -1,0 +1,34 @@
+[core]
+  ignorecase = false
+  editor = emacsclient -a=\\\"\\\"
+  pager = delta
+[interactinve]
+  diffFilter = delta --color-only
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[pull]
+  ff = only
+[push]
+  autoSetupRemote = true
+[delta]
+  navigate = true
+  line-numbers = true
+  side-by-side = true
+[diff]
+  tool = ediff
+  colorMoved = default
+[merge]
+  tool = ediff
+  conflictstyle = diff3
+[difftool "ediff"]
+  cmd = emacsclient -n -a \"\" --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+[mergetool "ediff"]
+  cmd = emacsclient -n -a \"\" --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+[user]
+  name=Chenfeng Pan
+  email=pancfmiaomiao@gmail.com
+[credential]
+  helper=osxkeychain
