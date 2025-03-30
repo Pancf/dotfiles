@@ -8,36 +8,47 @@
 
 * System Settings
 ** General
-+ 24-hour time
-+ Date format MM/DD/YYYY
+24-hour time
+Date format MM/DD/YYYY
 ** Control Center
-+ Wifi
-+ Bluetooth
-+ Clock
+Wifi
+Bluetooth
+Clock
 ** Accessibility
-+ Use three fingers to drag
+Use three fingers to drag
 ** Desktop & Dock
-+ Position Left
+Position Left
 ** Spotlight
-+ Disable it
+Disable it
 ** Displays
-+ True tone
-+ Display P3
+True tone
+Display P3
 ** Keyboard
-+ Key repeat rate
-+ Delay until repeat
-+ Disable Fn
-+ Disable Spotlight shortcut
-+ Switch CapsLock and Control
-+ Use CapsLock to switch input source
+Key repeat rate
+Delay until repeat
+Disable Fn
+Disable Spotlight shortcut
+Switch CapsLock and Control
+Use CapsLock to switch input source
 ** Trackpad
-+ Tap with three fingers to look up
-+ Secondary click with two fingers
-+ Tap to click
-+ Scroll between pages with two fingers
-+ Swipe between full-screen apps with four fingers
-+ Mission control with four fingers
-+ App Expose with four fingers
+Tap with three fingers to look up
+Secondary click with two fingers
+Tap to click
+Scroll between pages with two fingers
+Swipe between full-screen apps with four fingers
+Mission control with four fingers
+App Expose with four fingers
+
+* Xcode Settings
+** Locations
+Set DerivedData to Relative
+Set Build Location to Relative to Derived Data
+** General
+Show All file extensions
+** Editing
+Prefer Indent using Space
+Indent width 2
+
 
 * Shell Environment
 ** see [[./install.sh][install script]]
