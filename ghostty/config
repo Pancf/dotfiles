@@ -1,0 +1,13 @@
+font-family = ""
+font-family = MesloLGL NF
+theme = Dracula
+background-opacity = 0.1
+background-blur = macos-glass-regular
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+macos-option-as-alt = left
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = notify,no-bell
+split-inherit-working-directory = false
+

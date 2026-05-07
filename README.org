@@ -1,55 +1,160 @@
-#+TITLE: Personal env setup
+#+TITLE: Personal macOS Development Environment
 #+AUTHOR: Chenfeng Pan
 
-* App
-** Xcode
-** [[https://dl.nssurge.com/mac/v4/Surge-latest.zip][Surge]]
-** AdGuard
+This repository bootstraps a new Mac development environment with Homebrew packages, shell configuration, Git configuration, Ghostty configuration, Emacs configuration, and a small set of macOS defaults.
 
-* System Settings
-** General
-24-hour time
-Date format MM/DD/YYYY
-** Control Center
-Wifi
-Bluetooth
-Clock
-** Accessibility
-Use three fingers to drag
-** Desktop & Dock
-Position Left
-** Spotlight
-Disable it
-** Displays
-True tone
-Display P3
-** Keyboard
-Key repeat rate
-Delay until repeat
-Disable Fn
-Disable Spotlight shortcut
-Switch CapsLock and Control
-Use CapsLock to switch input source
-** Trackpad
-Tap with three fingers to look up
-Secondary click with two fingers
-Tap to click
-Scroll between pages with two fingers
-Swipe between full-screen apps with four fingers
-Mission control with four fingers
-App Expose with four fingers
+* Quick Start
 
-* Xcode Settings
-** Locations
-Set DerivedData to Relative
-Set Build Location to Relative to Derived Data
-** General
-Show All file extensions
-** Editing
-Prefer Indent using Space
-Indent width 2
+Install Xcode command line tools first:
 
+#+begin_src sh
+xcode-select --install
+#+end_src
 
-* Shell Environment
-** see [[./install.sh][install script]]
-  
+Clone and run the bootstrap:
+
+#+begin_src sh
+git clone https://github.com/Pancf/dotfiles.git ~/opensource/dotfiles
+cd ~/opensource/dotfiles
+./bootstrap.sh
+#+end_src
+
+For a preview without changing files:
+
+#+begin_src sh
+./bootstrap.sh --dry-run
+#+end_src
+
+* Bootstrap Options
+
+#+begin_src sh
+./bootstrap.sh --help
+#+end_src
+
+Supported flags:
+
+- =--dry-run=: show actions without changing files.
+- =--skip-brew=: skip Homebrew and =Brewfile= installation.
+- =--skip-shell=: skip Oh My Zsh and shell plugin installation.
+- =--skip-git=: skip Git config symlink.
+- =--skip-ghostty=: skip Ghostty config symlink.
+- =--skip-macos=: skip macOS defaults.
+- =--skip-emacs=: skip Emacs configuration.
+- =--skip-nvm=: skip nvm installation.
+
+* What Is Automated
+
+- Homebrew installation when missing.
+- =brew bundle= from =Brewfile=.
+- Oh My Zsh installation.
+- Powerlevel10k installation.
+- =zsh-syntax-highlighting= and =zsh-autosuggestions= installation.
+- nvm installation through the upstream installer, not Homebrew.
+- Symlinks for:
+  - =~/.zshenv= -> =shell/zshenv=
+  - =~/.zshrc= -> =shell/zshrc=
+  - =~/.gitconfig= -> =git/gitconfig=
+  - =~/.config/ghostty/config= -> =ghostty/config=
+- Spacemacs and personal Emacs configuration.
+- Reliable macOS defaults such as 24-hour time, Dock position, key repeat, tap-to-click, secondary click, and showing file extensions.
+
+* Local Configuration
+
+Private, machine-specific, or work-specific settings should stay out of tracked files.
+
+Use these local files:
+
+- =~/.zshrc.local=
+- =~/.zshenv.local=
+- =~/.gitconfig.local=
+
+Examples are provided in:
+
+- =shell/zshrc.local.example=
+- =shell/zshenv.local.example=
+- =git/gitconfig.local.example=
+
+Do not commit company credentials, proxy assumptions, internal paths, telemetry, or machine-specific Git identity.
+
+* Updating Packages
+
+Edit =Brewfile=, then run:
+
+#+begin_src sh
+brew bundle --file Brewfile
+#+end_src
+
+Check whether the bundle is satisfied:
+
+#+begin_src sh
+brew bundle check --file Brewfile
+#+end_src
+
+* Verification
+
+Run:
+
+#+begin_src sh
+./check.sh
+#+end_src
+
+The check script validates Bash syntax, Git config, ShellCheck when installed, the Homebrew bundle when Homebrew is available, and the bootstrap dry-run path.
+
+* Manual Steps
+
+Some settings are intentionally left manual because they are UI-only, fragile across macOS versions, or need confirmation on each machine.
+
+** Apps
+
+- Xcode from the App Store or Apple Developer downloads.
+- Surge.
+- AdGuard.
+- ChatGPT.
+- Codex.
+- Dash.
+
+** System Settings
+
+- Control Center visibility:
+  - Wi-Fi.
+  - Bluetooth.
+  - Clock.
+- Accessibility:
+  - Use three fingers to drag.
+- Spotlight:
+  - Disable where desired.
+- Displays:
+  - True Tone.
+  - Display P3.
+- Keyboard:
+  - Disable Fn behavior where desired.
+  - Disable Spotlight shortcut.
+  - Switch CapsLock and Control.
+  - Use CapsLock to switch input source.
+- Trackpad:
+  - Tap with three fingers to look up.
+  - Scroll between pages with two fingers.
+  - Swipe between full-screen apps with four fingers.
+  - Mission Control with four fingers.
+  - App Expose with four fingers.
+
+** Xcode Settings
+
+- Locations:
+  - Set DerivedData to Relative.
+  - Set Build Location to Relative to Derived Data.
+- General:
+  - Show all file extensions.
+- Editing:
+  - Prefer indent using spaces.
+  - Indent width 2.
+
+* Recovery
+
+Before replacing an existing file, bootstrap creates a timestamped backup such as:
+
+#+begin_src text
+~/.zshrc.backup.20260507-153000
+#+end_src
+
+If a rerun is needed, execute =./bootstrap.sh= again. The scripts are designed to be idempotent and avoid duplicate shell hooks.

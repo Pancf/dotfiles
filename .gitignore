@@ -1,0 +1,5 @@
+.#*
+.zshrc.local
+.zshenv.local
+.gitconfig.local
+ghostty/config.local

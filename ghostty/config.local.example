@@ -1,0 +1,3 @@
+# Ghostty does not currently need a tracked local override in this repo.
+# Keep machine-local visual tweaks in an untracked file or edit the linked config intentionally.
+

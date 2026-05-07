@@ -1,0 +1,39 @@
+[user]
+	name = Your Name
+	email = you@example.com
+
+# Machine- or work-specific settings can live here.
+# [maintenance]
+# 	repo = /path/to/large/repo
+
+# Large repository performance options.
+#
+# These are intentionally local examples instead of global defaults because they
+# are repository-dependent and can change tradeoffs around freshness, tags, and
+# maintenance behavior.
+
+# Built-in fsmonitor can reduce repeated working-tree scans in large repos.
+# Requires a Git version/platform where built-in fsmonitor is available.
+# [core]
+# 	fsmonitor = true
+
+# Speeds up status for repos with many untracked files. This is compatible with
+# fsmonitor; fsmonitor tracks file changes, while untrackedCache caches directory
+# scans for untracked files.
+# [core]
+# 	untrackedCache = true
+
+# Avoid fetching tags in very large repos. `remote.origin.tagOpt = --no-tags`
+# affects origin specifically; `fetch.tags = false` is broader. They are
+# compatible but redundant if both are set for the same workflow.
+# [remote "origin"]
+# 	tagOpt = --no-tags
+# [fetch]
+# 	tags = false
+# 	prune = true
+
+# Disables automatic garbage collection during foreground Git commands. This can
+# avoid surprise pauses in very large repos, but the repo still needs explicit
+# maintenance, for example `git maintenance run` or a project-provided job.
+# [gc]
+# 	auto = 0
